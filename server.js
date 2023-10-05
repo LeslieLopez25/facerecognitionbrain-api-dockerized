@@ -15,7 +15,7 @@ const db = knex({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false },
     host: process.env.DATABASE_HOST,
-    port: PORT,
+    port: process.env.PORT,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PW,
     database: process.env.DATABASE_DB,
@@ -51,7 +51,6 @@ app.post("/imageurl", (req, res) => {
   image.handleApiCall(req, res);
 });
 
-const PORT = process.env.PORT;
-app.listen(PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`app is running on port ${PORT}`);
 });
