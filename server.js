@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
 const knex = require("knex");
-const fetch = require("node-fetch");
+// const fetch = require("node-fetch");
 
 const register = require("./controllers/register");
 const signin = require("./controllers/signin");
@@ -46,7 +46,7 @@ app.put("/image", (req, res) => {
 });
 
 app.post("/imageurl", (req, res) => {
-  image.handleApiCall(req, res, fetch);
+  image.handleApiCall(req, res);
 });
 
 app.listen(process.env.PORT || 3000, () => {
