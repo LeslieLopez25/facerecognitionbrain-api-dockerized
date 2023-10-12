@@ -1,7 +1,6 @@
 <h1>Face Recognition Brain :adult:</h1>
 
-<h2>Backend Section</h2>
+<h2>Backend</h2>
 
-<p>This section has the backend code that went into connecting it to the server, creating an account, entering with an existing account, and the detection of the images as well.</p>
-
-(Backend database no longer in service)
+<p>This section handles the backend that is powered by Express and Node.js, with the added security of Bcrypt encryption. As well as connecting the backend to the PostgresSQL database.
+</p>
