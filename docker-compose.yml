@@ -17,7 +17,7 @@ services:
   # PostgresSQL
   postgres:
     container_name: postgres
-    image: postgres:latest
+    build: ./postgres
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=password
