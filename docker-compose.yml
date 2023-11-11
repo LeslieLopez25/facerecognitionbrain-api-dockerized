@@ -12,7 +12,7 @@ services:
     volumes:
       - ./:/usr/src/facerecognitionbrain-api
     environment:
-      POSTGRES_URI: postgres://admin:password@postgres:5432/smart-brain
+      POSTGRES_URI: postgres://jessie:passworda@postgres:5432/smart-brain
       REDIS_URI: redis://redis:6379
 
   # PostgresSQL
@@ -20,9 +20,8 @@ services:
     container_name: postgres
     build: ./postgres
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_URL=postgres://admin:password@localhost:5432/smart-brain
+      - POSTGRES_USER=jessie
+      - POSTGRES_PASSWORD=passworda
       - POSTGRES_DB=smart-brain
       - POSTGRES_HOST=postgres
     ports:
