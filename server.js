@@ -54,6 +54,6 @@ app.delete("/signout", (req, res) => {
   signout.handleSignout(req, res, db);
 });
 
-app.listen(3000, () => {
-  console.log("App is running on port 3000");
+app.listen(process.env.PORT, () => {
+  console.log(`App is running on port ${PORT}`);
 });
