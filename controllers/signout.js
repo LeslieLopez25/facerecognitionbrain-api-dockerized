@@ -8,7 +8,7 @@ const getAuthTokenId = (req, res) => {
   const { authorization } = req.headers;
   return redisClient.get(authorization, (err, reply) => {
     if (err || !reply) {
-      return res.status(400).json("Unauthorized");
+      return Promise.reject("Unauthorized");
     }
     removeToken(authorization, reply);
     return res.json({ id: reply });
@@ -25,5 +25,5 @@ const handleSignout = (req, res, db) => {
 };
 
 module.exports = {
-  handleSignout,
+  handleSignout: handleSignout,
 };

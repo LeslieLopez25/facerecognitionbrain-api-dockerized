@@ -35,7 +35,7 @@ const getAuthTokenId = (req, res) => {
   const { authorization } = req.headers;
   return redisClient.get(authorization, (err, reply) => {
     if (err || !reply) {
-      return res.status(400).json("Unauthorized");
+      return Promise.reject("Unauthorized");
     }
     return res.json({ id: reply });
   });
@@ -72,10 +72,10 @@ const signinAuthentication = (db, bcrypt) => (req, res) => {
             : Promise.reject(data);
         })
         .then((session) => res.json(session))
-        .catch((err) => res.status(400).json(err));
+        .catch((err) => Promise.reject(err));
 };
 
 module.exports = {
   signinAuthentication: signinAuthentication,
-  redisClient,
+  redisClient: redisClient,
 };

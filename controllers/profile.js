@@ -7,10 +7,10 @@ const handleProfileGet = (req, res, db) => {
       if (user.length) {
         res.json(user[0]);
       } else {
-        res.status(400).json("Not found");
+        Promise.reject("Not found");
       }
     })
-    .catch((err) => res.status(400).json("error getting user"));
+    .catch((err) => Promise.reject("error getting user"));
 };
 
 const handleProfileUpdate = (req, res, db) => {
@@ -23,10 +23,10 @@ const handleProfileUpdate = (req, res, db) => {
       if (resp) {
         res.json("success");
       } else {
-        res.status(400).json("Unable to update");
+        Promise.reject("Unable to update");
       }
     })
-    .catch((err) => res.status(400).json("error updating user"));
+    .catch((err) => Promise.reject("error updating user"));
 };
 
 module.exports = {
